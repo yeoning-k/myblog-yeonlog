@@ -1,0 +1,114 @@
+:root {
+  --container-width: 1200px;
+  --border-radius: 8px;
+  --base-background: #fff;
+  --base-font-color: #111;
+  --bg-color1: #eee;
+  --bg-color2: #111;
+  --ft-color1: #999;
+  --ft-color2: #666;
+  --ft-color3: #333;
+  --ft-color4: #fff;
+}
+
+/* ================== COMMON ================== */
+#container {
+  margin-top: 70px;
+  padding: 100px 0;
+  min-height: calc(100vh - 70px - 55px);
+  height: 1500px;
+  box-sizing: border-box;
+}
+.wrap {
+  margin: 0 auto;
+  width: var(--container-width);
+}
+a {
+  color: var(--ft-color3);
+}
+/* ================== //COMMON ================== */
+
+/* ================== HEADER ================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: var(--base-background);
+  transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+  border-bottom: 1px solid transparent;
+  z-index: 9999;
+
+  &.header--fix {
+    border-bottom: 1px solid var(--bg-color1);
+  }
+
+  &.header--hide {
+    top: -70px;
+  }
+  .wrap {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header__logo {
+    font-size: 24px;
+  }
+
+  .header__gnb {
+    display: flex;
+    gap: 60px;
+
+    a {
+      margin-top: 8px;
+      padding: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--base-font-color);
+
+      &::after {
+        content: '';
+        display: block;
+        width: 0%;
+        height: 1px;
+        background: var(--bg-color2);
+        transition: all 0.2s cubic-bezier(0.7, 0, 0.3, 1);
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .haeder__utils {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+
+    div {
+      display: flex;
+      font-size: 20px;
+      color: var(--bg-color2);
+
+      &.utils__git {
+        font-size: 19px;
+      }
+    }
+  }
+}
+/* ================== //HEADER ================== */
+
+/* ================== FOOTER ================== */
+.footer {
+  .footer__copyright {
+    padding: 20px 0;
+    font-size: 12px;
+    text-align: center;
+    color: var(--ft-color1);
+  }
+}
+/* ================== //FOOTER ================== */
