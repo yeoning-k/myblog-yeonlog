@@ -1,26 +1,54 @@
 :root {
   --container-width: 1200px;
   --border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+[data-theme='light'] {
   --base-background: #fff;
   --base-font-color: #111;
-  --bg-color1: #eee;
-  --bg-color2: #111;
-  --ft-color1: #999;
-  --ft-color2: #666;
-  --ft-color3: #333;
+  --border-color: #eee;
+
+  --bg-color1: #fff;
+  --bg-color2: #eee;
+  --bg-color3: #111;
+  --bg-color4: #111;
+
+  --ft-color1: #333;
+  --ft-color2: #999;
+  --ft-color3: #fff;
+  --ft-color4: #fff;
+}
+[data-theme='dark'] {
+  --base-background: #111;
+  --base-font-color: #fff;
+  --border-color: #333;
+
+  --bg-color1: #333;
+  --bg-color2: #444;
+  --bg-color3: #fff;
+  --bg-color4: #333;
+
+  --ft-color1: #eee;
+  --ft-color2: #999;
+  --ft-color3: #111;
   --ft-color4: #fff;
 }
 
 /* ================== COMMON ================== */
+body {
+  background: var(--base-background);
+  transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+}
 #container {
   margin-top: 70px;
   padding: 100px 0;
-  min-height: calc(100vh - 70px - 55px);
+  min-height: calc(100vh - 70px - 50px);
   box-sizing: border-box;
 }
 
 a {
-  color: var(--ft-color3);
+  color: var(--base-font-color);
 }
 
 .wrap {
@@ -31,9 +59,11 @@ a {
 .empty {
   margin-top: 30px;
   padding: 120px 0;
-  border: 1px solid var(--bg-color1);
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   text-align: center;
+  font-size: 14px;
+  color: var(--ft-color1);
 }
 
 .contents {
@@ -47,6 +77,7 @@ a {
     position: relative;
     font-size: 24px;
     font-weight: bold;
+    color: var(--base-font-color);
 
     .more__btn {
       position: absolute;
@@ -54,7 +85,7 @@ a {
       bottom: 0;
       font-size: 14px;
       font-weight: 300;
-      color: var(--ft-color1);
+      color: var(--ft-color2);
     }
   }
 }
@@ -77,7 +108,7 @@ a {
   z-index: 9999;
 
   &.header--fix {
-    border-bottom: 1px solid var(--bg-color1);
+    border-bottom: 1px solid var(--border-color);
   }
 
   &.header--hide {
@@ -92,6 +123,10 @@ a {
 
   .header__logo {
     font-size: 24px;
+
+    a {
+      color: var(--base-font-color);
+    }
   }
 
   .header__gnb {
@@ -110,7 +145,7 @@ a {
         display: block;
         width: 0%;
         height: 1px;
-        background: var(--bg-color2);
+        background: var(--);
         transition: all 0.2s cubic-bezier(0.7, 0, 0.3, 1);
       }
 
@@ -128,10 +163,14 @@ a {
     div {
       display: flex;
       font-size: 20px;
-      color: var(--bg-color2);
+      color: var(--base-font-color);
 
       &.utils__git {
         font-size: 19px;
+
+        a {
+          height: 19px;
+        }
       }
     }
   }
@@ -144,7 +183,7 @@ a {
     padding: 20px 0;
     font-size: 12px;
     text-align: center;
-    color: var(--ft-color1);
+    color: var(--ft-color2);
   }
 }
 /* ================== //FOOTER ================== */

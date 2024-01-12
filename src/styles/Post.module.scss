@@ -18,17 +18,18 @@
         padding: 0 20px;
         display: inline-block;
         height: 35px;
-        border: 1px solid var(--bg-color1);
+        border: 1px solid var(--border-color);
         border-radius: 35px;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 35px;
+        color: var(--base-font-color);
       }
 
       &.posts__snb--active {
         p {
-          background: var(--bg-color2);
-          border: 1px solid var(--bg-color2);
-          color: var(--ft-color4);
+          background: var(--bg-color3);
+          border: 1px solid var(--border-color);
+          color: var(--ft-color3);
         }
       }
     }
@@ -45,7 +46,7 @@
       .posts__search {
         position: relative;
         width: 277px;
-        border-bottom: 1px solid var(--bg-color1);
+        border-bottom: 1px solid var(--border-color);
 
         input {
           padding: 0 15px;
@@ -54,12 +55,12 @@
           border: none;
           background: none;
           font-size: 14px;
-          color: var(--ft-color3);
+          color: var(--ft-color1);
           box-sizing: border-box;
           outline: none;
 
           &::placeholder {
-            color: var(--ft-color1);
+            color: var(--ft-color2);
           }
         }
 
@@ -68,7 +69,7 @@
           top: 10px;
           right: 10px;
           font-size: 20px;
-          color: var(--ft-color1);
+          color: var(--ft-color2);
         }
       }
     }
@@ -80,13 +81,14 @@
     .post__title {
       font-size: 36px;
       font-weight: bold;
+      color: var(--base-font-color);
     }
     .post__date {
       margin-top: 20px;
       display: inline-flex;
       align-items: center;
       font-size: 13px;
-      color: var(--ft-color1);
+      color: var(--ft-color2);
 
       svg {
         margin-right: 4px;
@@ -98,8 +100,8 @@
     display: flex;
     margin: 30px 0;
     padding: 50px 0;
-    border-top: 1px solid var(--bg-color1);
-    border-bottom: 1px solid var(--bg-color1);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
     gap: 130px;
   }
 
@@ -116,12 +118,12 @@
 
         span {
           padding: 0 20px;
-          background: var(--bg-color1);
+          background: var(--bg-color2);
           height: 35px;
           line-height: 35px;
           border-radius: 35px;
           font-size: 14px;
-          color: var(--ft-color3);
+          color: var(--ft-color1);
 
           &::before {
             content: '#';
@@ -135,22 +137,23 @@
         height: 35px;
         line-height: 35px;
         border-radius: 35px;
-        background: var(--bg-color2);
+        background: var(--bg-color3);
         font-size: 14px;
-        color: var(--ft-color4);
+        font-weight: bold;
+        color: var(--ft-color3);
       }
     }
 
     .post__movement {
-      border: 1px solid var(--bg-color1);
+      border: 1px solid var(--border-color);
       border-radius: var(--border-radius);
       font-size: 14px;
-      color: var(--ft-color3);
+      color: var(--ft-color1);
       li {
         padding: 0 30px;
         height: 55px;
         line-height: 55px;
-        border-top: 1px solid var(--bg-color1);
+        border-top: 1px solid var(--border-color);
 
         &:first-child {
           border-top: none;
