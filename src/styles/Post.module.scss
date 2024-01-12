@@ -77,8 +77,6 @@
 
 .post {
   .post__header {
-    text-align: center;
-
     .post__title {
       font-size: 36px;
       font-weight: bold;
@@ -94,37 +92,43 @@
         margin-right: 4px;
       }
     }
-    .post__tags {
-      margin-top: 30px;
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-
-      span {
-        padding: 8px 20px 10px;
-        background: var(--bg-color1);
-        border-radius: 50px;
-        font-size: 16px;
-        color: var(--ft-color3);
-
-        &::before {
-          content: '#';
-        }
-      }
-    }
   }
 
   .post__body {
-    margin: 40px 0;
-    padding: 80px 0;
+    display: flex;
+    margin: 30px 0;
+    padding: 50px 0;
     border-top: 1px solid var(--bg-color1);
     border-bottom: 1px solid var(--bg-color1);
+    gap: 130px;
   }
 
   .post__footer {
     .post__button {
-      margin-bottom: 35px;
-      text-align: right;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+
+      .post__tags {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+
+        span {
+          padding: 0 20px;
+          background: var(--bg-color1);
+          height: 35px;
+          line-height: 35px;
+          border-radius: 35px;
+          font-size: 14px;
+          color: var(--ft-color3);
+
+          &::before {
+            content: '#';
+          }
+        }
+      }
+
       a {
         display: inline-block;
         padding: 0 20px;
@@ -160,6 +164,45 @@
         .movement__link:hover {
           text-decoration: underline;
         }
+      }
+    }
+  }
+}
+
+.toc {
+  position: relative;
+  height: auto;
+  width: 300px;
+
+  ul {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc__list {
+    margin: 10px 0;
+    font-size: 14px;
+    color: var(--base-font-color);
+    cursor: pointer;
+
+    &.toc__H1 {
+      font-weight: bold;
+    }
+    &.toc__H2 {
+      margin-left: 15px;
+    }
+    &.toc__H3 {
+      margin-left: 30px;
+    }
+
+    &.toc__list--active {
+      position: relative;
+      font-weight: bold;
+
+      &::before {
+        position: absolute;
+        left: -25px;
+        content: '👉🏻';
       }
     }
   }

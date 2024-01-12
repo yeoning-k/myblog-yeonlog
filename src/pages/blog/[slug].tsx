@@ -7,6 +7,7 @@ import { PostProps, PostDetailProps } from '@/interfaces';
 import MarkdownContent from '@/components/MarkdownContent';
 import PostMovement from '@/components/PostMovement';
 import UtterancesComments from '@/components/UtterancesComments';
+import Toc from '@/components/Toc';
 
 import styles from '@/styles/Post.module.scss';
 
@@ -32,19 +33,20 @@ export default function BlogListPage({
             <FiCalendar stroke="#999" />
             {createDate}
           </p>
-          {tags.length > 0 && (
-            <div className={styles.post__tags}>
-              {tags.map((tag, i) => (
-                <span key={i}>{tag}</span>
-              ))}
-            </div>
-          )}
         </div>
         <div className={styles.post__body}>
           <MarkdownContent content={content} />
+          <Toc />
         </div>
         <div className={styles.post__footer}>
           <div className={styles.post__button}>
+            {tags.length > 0 && (
+              <div className={styles.post__tags}>
+                {tags.map((tag, i) => (
+                  <span key={i}>{tag}</span>
+                ))}
+              </div>
+            )}
             <Link href={NAVIGATION_LINK['blog']}>목록보기</Link>
           </div>
           <PostMovement prevPost={prevPost} nextPost={nextPost} />
