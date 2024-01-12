@@ -13,6 +13,7 @@ export interface PostProps {
 }
 
 export interface PostDetailProps {
+  slug: string;
   title: string;
   tags: Array<string>;
   createDate: string;

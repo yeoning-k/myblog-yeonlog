@@ -4,7 +4,7 @@ import { useObserver } from '@/lib/hook';
 import styles from '@/styles/Post.module.scss';
 import classNames from 'classnames';
 
-const Toc = () => {
+const Toc = ({ slug }: { slug: string }) => {
   const [activeToc, setActiveToc] = useState<string>('');
   const [tocList, setTocList] = useState<HTMLElement[]>([]);
 
@@ -16,7 +16,7 @@ const Toc = () => {
       );
       setTocList(targetEls);
     }
-  }, []);
+  }, [slug]);
 
   useObserver(tocList, setActiveToc);
 

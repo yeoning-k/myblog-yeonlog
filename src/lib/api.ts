@@ -18,6 +18,7 @@ export const getPostDetail = (slug: string) => {
   } = matter(file);
 
   return {
+    slug,
     title,
     tags,
     createDate,

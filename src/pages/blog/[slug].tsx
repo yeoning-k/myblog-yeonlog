@@ -24,7 +24,7 @@ export default function BlogListPage({
 }) {
   if (!data) return;
 
-  const { title, tags, createDate, content } = data;
+  const { slug, title, tags, createDate, content } = data;
 
   return (
     <Layout>
@@ -35,7 +35,7 @@ export default function BlogListPage({
         </div>
         <div className={styles.post__body}>
           <MarkdownContent content={content} />
-          <Toc />
+          <Toc slug={slug} />
         </div>
         <div className={styles.post__footer}>
           <div className={styles.post__button}>
@@ -53,9 +53,7 @@ export default function BlogListPage({
       </div>
       <div className="contents">
         <h3 className="contents__title">댓글달기 💬</h3>
-        {/* <div className="comment"> */}
         <UtterancesComments />
-        {/* </div> */}
       </div>
     </Layout>
   );
