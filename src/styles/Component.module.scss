@@ -35,6 +35,7 @@
   .card__item {
     display: inline-block;
     margin-top: 30px;
+    width: 100%;
     box-sizing: border-box;
 
     a {
@@ -83,6 +84,9 @@
       font-size: 19px;
       font-weight: bold;
       color: var(--base-font-color);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     .card__description {
@@ -117,6 +121,12 @@
 
         .card__wrap {
           padding: 20px 15px;
+
+          .card__description {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
         }
       }
     }
