@@ -157,19 +157,29 @@ a {
 
   .haeder__utils {
     display: flex;
-    gap: 25px;
+    gap: 10px;
     align-items: center;
 
     div {
       display: flex;
+      width: 35px;
+      height: 35px;
       font-size: 20px;
       color: var(--base-font-color);
+      align-items: center;
+      justify-content: center;
+      border-radius: 35px;
+      cursor: pointer;
+
+      &:hover {
+        background: var(--bg-color2);
+      }
 
       &.utils__git {
-        font-size: 19px;
+        font-size: 18px;
 
         a {
-          height: 19px;
+          height: 18px;
         }
       }
     }
