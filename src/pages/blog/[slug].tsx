@@ -11,6 +11,7 @@ import UtterancesComments from '@/components/UtterancesComments';
 import Toc from '@/components/Toc';
 
 import styles from '@/styles/Post.module.scss';
+import PostDate from '@/components/PostDate';
 
 export default function BlogListPage({
   data,
@@ -30,10 +31,7 @@ export default function BlogListPage({
       <div className={styles.post}>
         <div className={styles.post__header}>
           <h1 className={styles.post__title}>{title}</h1>
-          <p className={styles.post__date}>
-            <FiCalendar stroke="#999" />
-            {createDate}
-          </p>
+          <PostDate className={styles.post__date} date={createDate} />
         </div>
         <div className={styles.post__body}>
           <MarkdownContent content={content} />

@@ -5,6 +5,7 @@ import PostEmpty from '@/components/PostEmpty';
 
 import { FiCalendar } from 'react-icons/fi';
 import styles from '@/styles/Component.module.scss';
+import PostDate from './PostDate';
 
 interface PostItemsProps {
   type: PostListType;
@@ -49,10 +50,7 @@ const PostItems = ({ type, data }: PostItemsProps) => {
                   <div className={styles.card__title}>{title}</div>
                   <div className={styles.card__description}>{description}</div>
                   {type === 'list' && (
-                    <div className={styles.card__date}>
-                      <FiCalendar stroke="#999" />
-                      {createDate}
-                    </div>
+                    <PostDate className={styles.card__date} date={createDate} />
                   )}
                 </div>
               </Link>
