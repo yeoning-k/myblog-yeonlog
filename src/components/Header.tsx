@@ -6,11 +6,11 @@ import { Roboto_Mono } from 'next/font/google';
 import { FiSun, FiMoon, FiGithub } from 'react-icons/fi';
 import classNames from 'classnames';
 
-import { gnbType } from '@/interfaces';
+import { GnbType } from '@/interfaces';
 import { NAVIGATION_LINK } from '@/lib/constants';
 
 const Roboto = Roboto_Mono({ subsets: ['latin'], weight: ['700'] });
-const GNB_MENU: gnbType[] = ['Blog', 'Project', 'About me'];
+const GNB_MENU: GnbType[] = ['Blog', 'Project', 'About me'];
 
 const Header = () => {
   const [isFixed, setIsFixed] = useState(false);
@@ -37,7 +37,10 @@ const Header = () => {
 
   return (
     <header
-      className={classNames('header', { 'header--fix': isFixed, 'header--hide': !isVisivle })}
+      className={classNames('header', {
+        'header--fix': isFixed,
+        'header--hide': !isVisivle
+      })}
     >
       <div className="wrap">
         <h1 className={`header__logo ${Roboto.className}`}>
@@ -45,7 +48,8 @@ const Header = () => {
         </h1>
         <div className="header__gnb">
           {GNB_MENU?.map((menu, idx) => {
-            const link = NAVIGATION_LINK[menu.toLowerCase().replaceAll(' ', '')];
+            const link =
+              NAVIGATION_LINK[menu.toLowerCase().replaceAll(' ', '')];
             return (
               <Link href={link} key={idx}>
                 {menu}

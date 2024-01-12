@@ -1,5 +1,6 @@
 import '@/styles/reset.css';
 import '@/styles/global.scss';
+import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import { Noto_Sans } from 'next/font/google';
 
@@ -11,10 +12,14 @@ const NotoSans = Noto_Sans({ subsets: ['latin'] });
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Head>
+        <title>YEON LOG</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <Header />
-      <div id="container" className={NotoSans.className}>
+      <main id="container" className={NotoSans.className}>
         <Component {...pageProps} />
-      </div>
+      </main>
       <Footer />
     </>
   );
