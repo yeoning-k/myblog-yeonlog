@@ -1,3 +1,4 @@
+import Layout from '@/components/Layout';
 import { getAllPosts } from '@/lib/api';
 import { PostProps } from '@/interfaces';
 import PageTitle from '@/components/PageTitle';
@@ -11,14 +12,14 @@ export default function ProjectListPage({
   postTags: Array<string>;
 }) {
   return (
-    <div className="wrap">
+    <Layout>
       <PageTitle
         title="Project"
         description="스터디용 프로젝트 모음집"
         emoji="💻"
       />
       <PostList type="card" posts={projectPosts} postTags={postTags} />
-    </div>
+    </Layout>
   );
 }
 

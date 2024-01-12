@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FiCalendar } from 'react-icons/fi';
 
+import Layout from '@/components/Layout';
 import { getAllPosts, getPostDetail } from '@/lib/api';
 import { NAVIGATION_LINK } from '@/lib/constants';
 import { PostProps, PostDetailProps } from '@/interfaces';
@@ -25,7 +26,7 @@ export default function BlogListPage({
   const { title, tags, createDate, content } = data;
 
   return (
-    <div className="wrap">
+    <Layout>
       <div className={styles.post}>
         <div className={styles.post__header}>
           <h1 className={styles.post__title}>{title}</h1>
@@ -52,11 +53,13 @@ export default function BlogListPage({
           <PostMovement prevPost={prevPost} nextPost={nextPost} />
         </div>
       </div>
-      <div className="comment contents">
+      <div className="contents">
         <h3 className="contents__title">댓글달기 💬</h3>
+        {/* <div className="comment"> */}
         <UtterancesComments />
+        {/* </div> */}
       </div>
-    </div>
+    </Layout>
   );
 }
 

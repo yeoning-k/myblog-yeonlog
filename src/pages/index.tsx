@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import Layout from '@/components/Layout';
 import { PostProps } from '@/interfaces';
 import { getAllPosts } from '@/lib/api';
 import { NAVIGATION_LINK } from '@/lib/constants';
@@ -14,7 +15,7 @@ export default function Home({
   projectPosts: PostProps[];
 }) {
   return (
-    <>
+    <Layout>
       <div className="wrap mainPage">
         <PageTitle
           title="yeoning"
@@ -42,7 +43,7 @@ export default function Home({
           <PostItems type="list" data={blogPosts} />
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
 
