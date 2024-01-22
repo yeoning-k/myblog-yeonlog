@@ -6,12 +6,11 @@ import Footer from '@/components/Footer';
 
 const NotoSans = Noto_Sans({ subsets: ['latin'] });
 const Layout = ({ children }: { children: ReactNode }) => {
-
   return (
     <div className="layout">
       <Header />
       <main id="container" className={NotoSans.className}>
-        <div className="wrap">{children}</div>
+        {children}
       </main>
       <Footer />
     </div>
