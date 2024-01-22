@@ -5,7 +5,7 @@ import { PostProps } from '@/interfaces';
 import { getAllPosts } from '@/lib/api';
 import { NAVIGATION_LINK } from '@/lib/constants';
 import PageTitle from '@/components/PageTitle';
-import PostItems from '@/components/PostItems';
+import PostItems from '@/components/post/PostItems';
 
 export default function Home({
   blogPosts,
@@ -16,7 +16,7 @@ export default function Home({
 }) {
   return (
     <Layout>
-      <div className="wrap mainPage">
+      <div className="wrap main-page">
         <PageTitle
           title="yeoning"
           description="Front-end developer"
