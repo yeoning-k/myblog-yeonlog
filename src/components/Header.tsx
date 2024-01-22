@@ -24,9 +24,11 @@ const Header = () => {
   const handleScroll = useCallback(
     (e: Event) => {
       const currentScrollY = window.scrollY;
-
-      setIsFixed(currentScrollY > 0 ? true : false);
-      setIsVisivle(currentScrollY > lastScrollY ? false : true);
+      const scrollCondition = currentScrollY > 70;
+      setIsFixed(scrollCondition ? true : false);
+      setIsVisivle(
+        scrollCondition && currentScrollY > lastScrollY ? false : true
+      );
       setLastScrollY(currentScrollY);
     },
     [lastScrollY]
