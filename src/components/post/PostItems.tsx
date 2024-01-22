@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { PostProps, PostListType } from '@/interfaces';
-import PostEmpty from '@/components/PostEmpty';
+import PostEmpty from '@/components/post/PostEmpty';
 
 import { FiCalendar } from 'react-icons/fi';
 import styles from '@/styles/Component.module.scss';

@@ -4,8 +4,8 @@ import { useSearchParams } from 'next/navigation';
 import { FiSearch } from 'react-icons/fi';
 
 import { PostProps, PostListType } from '@/interfaces';
-import PostNavigation from '@/components/PostNavigation';
-import PostItems from '@/components/PostItems';
+import PostNavigation from '@/components/post/PostNavigation';
+import PostItems from '@/components/post/PostItems';
 import styles from '@/styles/Post.module.scss';
 
 const PostList = ({

@@ -2,7 +2,7 @@ import Layout from '@/components/Layout';
 import { getAllPosts } from '@/lib/api';
 import { PostProps } from '@/interfaces';
 import PageTitle from '@/components/PageTitle';
-import PostList from '@/components/PostList';
+import PostList from '@/components/post/PostList';
 
 export default function ProjectListPage({
   projectPosts,
@@ -13,12 +13,14 @@ export default function ProjectListPage({
 }) {
   return (
     <Layout>
-      <PageTitle
-        title="Project"
-        description="스터디용 프로젝트 모음집"
-        emoji="💻"
-      />
-      <PostList type="card" posts={projectPosts} postTags={postTags} />
+      <div className="wrap">
+        <PageTitle
+          title="Project"
+          description="스터디용 프로젝트 모음집"
+          emoji="💻"
+        />
+        <PostList type="card" posts={projectPosts} postTags={postTags} />
+      </div>
     </Layout>
   );
 }

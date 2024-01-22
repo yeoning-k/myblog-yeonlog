@@ -2,7 +2,7 @@ import { getAllPosts } from '@/lib/api';
 import { PostProps } from '@/interfaces';
 import Layout from '@/components/Layout';
 import PageTitle from '@/components/PageTitle';
-import PostList from '@/components/PostList';
+import PostList from '@/components/post/PostList';
 
 export default function BlogListPage({
   blogPosts,
@@ -13,12 +13,14 @@ export default function BlogListPage({
 }) {
   return (
     <Layout>
-      <PageTitle
-        title="Blog"
-        description="쪼랭이 개발자의 개발일기"
-        emoji="📔"
-      />
-      <PostList type="list" posts={blogPosts} postTags={postTags} />
+      <div className="wrap">
+        <PageTitle
+          title="Blog"
+          description="쪼랭이 개발자의 개발일기"
+          emoji="📔"
+        />
+        <PostList type="list" posts={blogPosts} postTags={postTags} />
+      </div>
     </Layout>
   );
 }

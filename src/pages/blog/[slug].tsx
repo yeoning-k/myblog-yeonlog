@@ -5,13 +5,13 @@ import Layout from '@/components/Layout';
 import { getAllPosts, getPostDetail } from '@/lib/api';
 import { NAVIGATION_LINK } from '@/lib/constants';
 import { PostProps, PostDetailProps } from '@/interfaces';
-import MarkdownContent from '@/components/MarkdownContent';
-import PostMovement from '@/components/PostMovement';
-import UtterancesComments from '@/components/UtterancesComments';
-import Toc from '@/components/Toc';
+import MarkdownContent from '@/components/post/MarkdownContent';
+import PostMovement from '@/components/post/PostMovement';
+import UtterancesComments from '@/components/post/UtterancesComments';
+import Toc from '@/components/post/Toc';
 
 import styles from '@/styles/Post.module.scss';
-import PostDate from '@/components/PostDate';
+import PostDate from '@/components/post/PostDate';
 
 export default function BlogListPage({
   data,
@@ -28,32 +28,34 @@ export default function BlogListPage({
 
   return (
     <Layout>
-      <div className={styles.post}>
-        <div className={styles.post__header}>
-          <h1 className={styles.post__title}>{title}</h1>
-          <PostDate className={styles.post__date} date={createDate} />
-        </div>
-        <div className={styles.post__body}>
-          <MarkdownContent content={content} />
-          <Toc slug={slug} />
-        </div>
-        <div className={styles.post__footer}>
-          <div className={styles.post__button}>
-            {tags.length > 0 && (
-              <div className={styles.post__tags}>
-                {tags.map((tag, i) => (
-                  <span key={i}>{tag}</span>
-                ))}
-              </div>
-            )}
-            <Link href={NAVIGATION_LINK['blog']}>목록보기</Link>
+      <div className="wrap">
+        <div className={styles.post}>
+          <div className={styles.post__header}>
+            <h1 className={styles.post__title}>{title}</h1>
+            <PostDate className={styles.post__date} date={createDate} />
           </div>
-          <PostMovement prevPost={prevPost} nextPost={nextPost} />
+          <div className={styles.post__body}>
+            <MarkdownContent content={content} />
+            <Toc slug={slug} />
+          </div>
+          <div className={styles.post__footer}>
+            <div className={styles.post__button}>
+              {tags.length > 0 && (
+                <div className={styles.post__tags}>
+                  {tags.map((tag, i) => (
+                    <span key={i}>{tag}</span>
+                  ))}
+                </div>
+              )}
+              <Link href={NAVIGATION_LINK['blog']}>목록보기</Link>
+            </div>
+            <PostMovement prevPost={prevPost} nextPost={nextPost} />
+          </div>
         </div>
-      </div>
-      <div className="contents">
-        <h3 className="contents__title">댓글달기 💬</h3>
-        <UtterancesComments />
+        <div className="contents">
+          <h3 className="contents__title">댓글달기 💬</h3>
+          <UtterancesComments />
+        </div>
       </div>
     </Layout>
   );
