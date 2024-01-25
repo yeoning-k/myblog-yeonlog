@@ -1,5 +1,7 @@
+/*== 공통 ==*/
 export type GnbType = 'Blog' | 'Project' | 'About me';
 
+/*== post ==*/
 export type PostListType = 'card' | 'list';
 
 export interface PostProps {
@@ -19,3 +21,20 @@ export interface PostDetailProps {
   createDate: string;
   content: string;
 }
+
+/*== about ==*/
+export type ProfileType = {
+  name: string;
+  contact: string;
+};
+
+export type MessageButtonType = 'file' | 'email';
+
+export type MessagesOptionType = {
+  text: string;
+  type: MessageButtonType;
+};
+export type IntroMessagesType = {
+  text: string;
+  option?: MessagesOptionType[];
+};
