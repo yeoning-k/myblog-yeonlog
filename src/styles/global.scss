@@ -13,11 +13,13 @@
   --bg-color2: #eee;
   --bg-color3: #111;
   --bg-color4: #111;
+  --bg-color5: #ccc;
 
   --ft-color1: #333;
   --ft-color2: #999;
   --ft-color3: #fff;
   --ft-color4: #fff;
+  --ft-color5: #666;
 }
 [data-theme='dark'] {
   --base-background: #111;
@@ -28,11 +30,13 @@
   --bg-color2: #444;
   --bg-color3: #fff;
   --bg-color4: #333;
+  --bg-color5: #666;
 
   --ft-color1: #eee;
   --ft-color2: #999;
   --ft-color3: #111;
   --ft-color4: #fff;
+  --ft-color5: #666;
 }
 
 /* ================== COMMON ================== */
@@ -49,6 +53,10 @@ body {
 
 a {
   color: var(--base-font-color);
+}
+
+b {
+  font-weight: bold;
 }
 
 .wrap {
@@ -83,10 +91,19 @@ a {
       position: absolute;
       right: 0;
       bottom: 0;
+      display: flex;
+      gap: 5px;
+      align-items: center;
       font-size: 14px;
       font-weight: 300;
       color: var(--ft-color2);
+
+      &:hover {
+        font-weight: 400;
+        color: var(--ft-color1)
+      }
     }
+    
   }
 }
 
@@ -145,7 +162,7 @@ a {
         display: block;
         width: 0%;
         height: 1px;
-        background: var(--);
+        background: var(--base-font-color);
         transition: all 0.2s cubic-bezier(0.7, 0, 0.3, 1);
       }
 
@@ -199,7 +216,7 @@ a {
 /* ================== //FOOTER ================== */
 
 /* ================== CUSTOM ================== */
-.mainPage {
+.main-page {
   [class*='Component_card__type-card'] {
     [class*='Component_card__item'] {
       width: 25% !important;
