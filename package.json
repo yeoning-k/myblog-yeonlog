@@ -13,6 +13,7 @@
   "dependencies": {
     "classnames": "^2.5.1",
     "eslint-plugin-react-hooks": "^5.0.0-canary-f1039be4a-20240107",
+    "framer-motion": "^11.0.3",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
