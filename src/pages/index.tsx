@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { FiChevronRight, FiArrowRight } from 'react-icons/fi';
 import Layout from '@/components/Layout';
 import { PostProps } from '@/interfaces';
 import { getAllPosts } from '@/lib/api';
@@ -27,7 +28,8 @@ export default function Home({
           <h3 className="contents__title">
             Project
             <Link className="more__btn" href={NAVIGATION_LINK['project']}>
-              더보기 →
+              더보기
+              <FiArrowRight />
             </Link>
           </h3>
           <PostItems type="card" data={projectPosts} />
@@ -37,7 +39,8 @@ export default function Home({
           <h3 className="contents__title">
             Blog
             <Link className="more__btn" href={NAVIGATION_LINK['blog']}>
-              더보기 →
+              더보기
+              <FiArrowRight />
             </Link>
           </h3>
           <PostItems type="list" data={blogPosts} />
