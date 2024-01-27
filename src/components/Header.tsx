@@ -1,45 +1,91 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback, useContext, useLayoutEffect, useState } from 'react';
+import { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import Link from 'next/link';
 
 import { Roboto_Mono } from 'next/font/google';
+import { motion } from 'framer-motion';
 
 import { FiSun, FiMoon, FiGithub } from 'react-icons/fi';
 import classNames from 'classnames';
 
 import ThemeContext from '@/context/ThemeContext';
-import { GnbType } from '@/interfaces';
-import { NAVIGATION_LINK } from '@/lib/constants';
+import HeaderScrollContext from '@/context/HeaderScrollContext';
+import { GNB_MENU, NAVIGATION_LINK } from '@/lib/constants';
+import Hamburger, { animation } from './Hamburger';
 
-const Roboto = Roboto_Mono({ subsets: ['latin'], weight: ['700'] });
-const GNB_MENU: GnbType[] = ['Blog', 'Project', 'About me'];
+export const Roboto = Roboto_Mono({ subsets: ['latin'], weight: ['700'] });
+
+export const GnbMenus = ({ animate = false }: { animate?: boolean }) => {
+  return (
+    <motion.ul
+      className="header__gnb"
+      variants={animate ? animation.gnb.wrap : undefined}
+    >
+      {GNB_MENU?.map((menu, idx) => {
+        const link = NAVIGATION_LINK[menu.toLowerCase().replaceAll(' ', '')];
+
+        return (
+          <motion.li
+            key={idx}
+            variants={animate ? animation.gnb.item : undefined}
+            whileHover={{ y: animate ? -10 : 0 }}
+            whileTap={{ y: 0 }}
+          >
+            <Link href={link}>{menu}</Link>
+          </motion.li>
+        );
+      })}
+    </motion.ul>
+  );
+};
+
+export const UtilMenus = ({ animate = false }: { animate?: boolean }) => {
+  const { toggleMode, theme } = useContext(ThemeContext);
+
+  return (
+    <motion.div
+      className="haeder__utils"
+      variants={animate ? animation.gnb.wrap : undefined}
+    >
+      <motion.div
+        className="utils__git"
+        variants={animate ? animation.gnb.item : undefined}
+      >
+        <Link href="http://github.com/yeoning-k" target="_blank">
+          <FiGithub />
+        </Link>
+      </motion.div>
+      <motion.div
+        className="utils__theme"
+        onClick={toggleMode}
+        variants={animate ? animation.gnb.item : undefined}
+      >
+        {theme === 'light' ? (
+          <FiMoon className="utils__theme-btn" />
+        ) : (
+          <FiSun className="utils__theme-btn" />
+        )}
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const Header = () => {
-  const context = useContext(ThemeContext);
+  const [isMobile, setIsMobile] = useState(false);
+  const { isFixed, isVisivle } = useContext(HeaderScrollContext);
 
-  const [isFixed, setIsFixed] = useState(false);
-  const [isVisivle, setIsVisivle] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const handleScroll = useCallback(
-    (e: Event) => {
-      const currentScrollY = window.scrollY;
-      const scrollCondition = currentScrollY > 70;
-      setIsFixed(scrollCondition ? true : false);
-      setIsVisivle(
-        scrollCondition && currentScrollY > lastScrollY ? false : true
-      );
-      setLastScrollY(currentScrollY);
-    },
-    [lastScrollY]
-  );
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 1024);
+  }, []);
 
   useLayoutEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
     };
-  }, [lastScrollY]);
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <header
@@ -52,31 +98,14 @@ const Header = () => {
         <h1 className={`header__logo ${Roboto.className}`}>
           <Link href="/">yeon.log</Link>
         </h1>
-        <div className="header__gnb">
-          {GNB_MENU?.map((menu, idx) => {
-            const link =
-              NAVIGATION_LINK[menu.toLowerCase().replaceAll(' ', '')];
-            return (
-              <Link href={link} key={idx}>
-                {menu}
-              </Link>
-            );
-          })}
-        </div>
-        <div className="haeder__utils">
-          <div className="utils__git">
-            <Link href="http://github.com/yeoning-k" target="_blank">
-              <FiGithub />
-            </Link>
-          </div>
-          <div className="utils__theme" onClick={context.toggleMode}>
-            {context.theme === 'light' ? (
-              <FiMoon className="utils__theme-btn" />
-            ) : (
-              <FiSun className="utils__theme-btn" />
-            )}
-          </div>
-        </div>
+        {isMobile ? (
+          <Hamburger />
+        ) : (
+          <>
+            <GnbMenus />
+            <UtilMenus />
+          </>
+        )}
       </div>
     </header>
   );
