@@ -60,8 +60,6 @@ const PostList = ({
             </div>
           </div>
           <PostItems type={type} data={datas} />
-          <PostItems type={type} data={datas} />
-          <PostItems type={type} data={datas} />
         </div>
       </div>
     </div>
