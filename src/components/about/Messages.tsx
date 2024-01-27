@@ -24,21 +24,6 @@ const animation = {
     visible: { opacity: 1, y: 0 }
   }
 };
-const boxVariants = {
-  initial: {
-    opacity: 0,
-    scale: 0
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    rotateZ: 360
-  },
-  leaving: {
-    opacity: 0,
-    y: 20
-  }
-};
 
 const RenderOption = ({ type }: { type: MessageButtonType }) => {
   if (type === 'file') {

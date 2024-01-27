@@ -53,12 +53,14 @@ const PostList = ({
             <div className={styles.posts__search}>
               <input
                 type="text"
-                onChange={(e) => setSearchText(e.target.value.toLowerCase())}
+                onChange={e => setSearchText(e.target.value.toLowerCase())}
                 placeholder="게시글 제목을 검색하세요"
               />
               <FiSearch />
             </div>
           </div>
+          <PostItems type={type} data={datas} />
+          <PostItems type={type} data={datas} />
           <PostItems type={type} data={datas} />
         </div>
       </div>

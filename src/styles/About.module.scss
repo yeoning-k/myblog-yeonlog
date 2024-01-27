@@ -1,11 +1,12 @@
 .about {
-  margin-top: 100px;
+  margin: var(--container-gap);
+  margin-bottom: 0;
   padding: 80px 0;
   background: var(--border-color);
 
   .message {
     display: flex;
-    gap: 45px;
+    justify-content: space-between;
   
     .message__image {
       display: flex;
@@ -24,11 +25,11 @@
     }
 
     .message__commnet {
-      width: calc(100% - 107px);
+      width: calc(100% - 107px - 45px);
 
       .message__name {
-        margin-bottom: 10px;
-        font-size: 15px;
+        margin-bottom: 15px;
+        font-size: var(--fz-15);
         font-weight: bold;
         color: var(--base-font-color);
       }
@@ -44,7 +45,7 @@
           border-radius: 0 var(--border-radius) var(--border-radius);
           box-shadow: 0 4px 16px 0 rgba(19, 19, 54, 0.1);
           white-space: pre-line;
-          font-size: 14px;
+          font-size: var(--fz-14);
           color: var(--base-font-color);
 
           p {
@@ -61,7 +62,7 @@
             width: 100%;
             border-radius: 100px;
             text-align: center;
-            font-size: 12px;
+            font-size: var(--fz-12);
             border:1px solid var(--border-color);
             cursor: pointer;
 
@@ -79,6 +80,7 @@
       }
 
       .message__box_user {
+        margin: 10px 0;
         text-align: right;
 
         .message__text {
@@ -99,22 +101,22 @@
         top:10px;
         left:0;
         content: '📂';
-        font-size: 32px;
+        font-size: var(--fz-36);
       }
       
       p {
-        font-size: 14px;
+        font-size: var(--fz-14);
         color: var(--ft-color1)
       }
       span {
         display: block;
-        font-size: 12px;
+        font-size: var(--fz-12);
         color: var(--ft-color2);
       }
       .message__file_btn {
         margin-top: 13px;
         a {
-          font-size: 12px;
+          font-size: var(--fz-12);
           color: #6598D5;
 
           &:last-child::before {
@@ -134,6 +136,68 @@
 
       &:hover {
         text-decoration: underline;
+      }
+    }
+  }
+
+  @include desktop() {
+    .message {
+      .message__image {
+        display: flex;
+        width: 98px;
+        height: 98px;
+        
+        img {
+          width: 105px;
+          height: 105px;
+        }
+      }
+
+      .message__commnet {
+        width: calc(100% - 98px - 30px);
+
+        .message__box {
+          .message__text {
+            padding: 15px 20px;
+          }
+        }
+      }
+    }
+  }
+
+  @include tablet() {
+    .message {
+      .message__image {
+        display: flex;
+        width: 80px;
+        height: 80px;
+        
+        img {
+          width: 90px;
+          height: 90px;
+        }
+      }
+
+      .message__commnet {
+        width: calc(100% - 80px - 30px);
+
+        .message__box {
+          .message__text {
+            padding: 15px 20px;
+          }
+        }
+      }
+    }
+  }
+
+  @include mobile() {
+    .message {
+      .message__image {
+        display: none;
+      }
+
+      .message__commnet {
+        width: 100%;
       }
     }
   }
