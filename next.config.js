@@ -13,12 +13,15 @@ const nextConfig = {
     unoptimized: true
   },
   webpack5: true,
-  webpack: (config) => {
+  webpack: config => {
     config.resolve.fallback = { fs: false };
 
     return config;
   },
-
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+    prependData: `@import "src/styles/_mixins.scss";`
+  },
   distDir: 'build',
   reactStrictMode: true
 };
