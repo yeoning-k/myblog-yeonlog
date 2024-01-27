@@ -33,7 +33,7 @@
   --color-fg-muted: #848d97;
   --color-fg-subtle: #6e7681;
   --color-canvas-default: #0d1117;
-  --color-canvas-subtle: #161b22;
+  --color-canvas-subtle: #262626;
   --color-border-default: #30363d;
   --color-border-muted: #21262d;
   --color-neutral-muted: rgba(110, 118, 129, 0.4);
@@ -103,19 +103,17 @@
 }
 
 .markdown-body {
+  width: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0;
   color: var(--color-fg-default);
-  /* background-color: var(--color-canvas-default); */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans',
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-  font-size: 16px;
+  font-size: var(--fz-16);
   line-height: 1.5;
   word-wrap: break-word;
   transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
-  /* padding: 50px; */
-  /* border-radius: var(--border-radius); */
 }
 
 .markdown-body .octicon {
@@ -179,7 +177,7 @@
   font-weight: var(--base-text-weight-semibold, 600);
   padding-bottom: 0.3em;
   font-size: 2em;
-  border-bottom: 1px solid var(--color-border-muted);
+  /* border-bottom: 1px solid var(--color-border-muted); */
 }
 
 .markdown-body mark {
@@ -379,22 +377,26 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  margin-top: 24px;
-  margin-bottom: 16px;
+  margin-top: 30px;
+  margin-bottom: 12px;
   font-weight: var(--base-text-weight-semibold, 600);
-  line-height: 1.25;
+  line-height: 1.5;
+}
+.markdown-body h1 {
+  margin-top: 80px;
+  margin-top: 2.5rem;
+  padding-bottom: 0.5em;
 }
 
 .markdown-body h2 {
+  margin-top: 80px;
   font-weight: var(--base-text-weight-semibold, 600);
-  padding-bottom: 0.3em;
-  font-size: 1.5em;
-  border-bottom: 1px solid var(--color-border-muted);
+  font-size: 1.6em;
 }
 
 .markdown-body h3 {
   font-weight: var(--base-text-weight-semibold, 600);
-  font-size: 1.25em;
+  font-size: 1.3em;
 }
 
 .markdown-body h4 {
@@ -416,23 +418,46 @@
 .markdown-body p {
   margin-top: 0;
   margin-bottom: 10px;
+  line-height: 1.6;
 }
 
 .markdown-body blockquote {
+  position: relative;
   margin: 0;
-  padding: 0 1em;
-  color: var(--color-fg-muted);
-  border-left: 0.25em solid var(--color-border-default);
+  padding: 16px 20px;
+  padding-left: 50px;
+  color: var(--color-fg-default);
+  background: var(--color-canvas-subtle);
+  border-radius: 6px;
+  font-size: 1em;
+}
+.markdown-body blockquote p {
+  font-size: 1em;
+}
+.markdown-body blockquote::before {
+  position:absolute;
+  top: 16px;
+  left: 20px;
+  content: '💡';
 }
 
 .markdown-body ul,
 .markdown-body ol {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 24px;
   padding-left: 2em;
   list-style: initial;
+  font-size: var(--fz-16);
 }
 
+.markdown-body ul li,
+.markdown-body ol li {
+  margin-bottom: 12px;
+}
+.markdown-body ul li::marker,
+.markdown-body ol li::marker {
+  color: var(--color-fg-muted);
+}
 .markdown-body ol ol,
 .markdown-body ul ol {
   list-style-type: lower-roman;
@@ -458,6 +483,7 @@
 }
 
 .markdown-body pre {
+  padding: 30px 16px;
   margin-top: 0;
   margin-bottom: 0;
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
@@ -525,14 +551,12 @@
 
 .markdown-body p,
 .markdown-body blockquote,
-.markdown-body ul,
-.markdown-body ol,
 .markdown-body dl,
 .markdown-body table,
 .markdown-body pre,
 .markdown-body details {
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .markdown-body blockquote > :first-child {
@@ -672,7 +696,7 @@
 
 .markdown-body dl dd {
   padding: 0 16px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .markdown-body table th {
@@ -841,7 +865,7 @@
 }
 
 .markdown-body .highlight {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .markdown-body .highlight pre {
@@ -851,9 +875,9 @@
 
 .markdown-body .highlight pre,
 .markdown-body pre {
-  padding: 16px;
+  padding: 20px;
   overflow: auto;
-  font-size: 85%;
+  font-size: 90%;
   line-height: 1.45;
   color: var(--color-fg-default);
   background-color: var(--color-canvas-subtle);
@@ -1134,7 +1158,7 @@
 
 .markdown-body .markdown-alert {
   padding: var(--base-size-8) var(--base-size-16);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: inherit;
   border-left: 0.25em solid var(--color-border-default);
 }
