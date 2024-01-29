@@ -1,10 +1,6 @@
-import { useContext } from 'react';
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
-import { visit } from 'unist-util-visit';
-
-import ThemeContext from '@/context/ThemeContext';
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
