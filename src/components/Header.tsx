@@ -18,6 +18,7 @@ const Header = () => {
   useLayoutEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
+      if (!isMobile) document.body.style.overflow = 'unset';
     };
 
     window.addEventListener('resize', handleResize);

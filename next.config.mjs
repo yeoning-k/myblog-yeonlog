@@ -2,18 +2,19 @@
 import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
-const __filename = fileURLToPath(import.meta.url);
-
 const require = createRequire(import.meta.url);
 const path = require('path');
+const { withContentlayer } = require('next-contentlayer');
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 const nextConfig = {
   reactStrictMode: true,
+  swcMinify: true,
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
     prependData: `@import "src/styles/_mixins.scss";`
   }
 };
 
-export default nextConfig;
+export default withContentlayer(nextConfig);
