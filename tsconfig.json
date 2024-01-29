@@ -14,13 +14,14 @@
     "incremental": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@components/*": ["./src/components"],
-      "@styles/*": ["./src/styles"],
-      "@interface/*": ["./src/interface"],
-      "@context/*": ["./src/context"],
-      "@pages/*": ["./src/pages"]
+      "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".contentlayer/generated"
+  ],
   "exclude": ["node_modules"]
 }
