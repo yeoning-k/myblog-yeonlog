@@ -1,5 +1,78 @@
+
+@import './reset.css';
+@import './mixins';
+
 :root {
   --container-width: 1200px;
-  --container-gap: 100px;
+  --container-gap: 100px 0;
   --border-radius: 8px;
+
+  --base-background: #fff;
+  --base-font-color: #111;
+  --border-color: #eee;
+
+  --bg-color1: #fff;
+  --bg-color2: #eee;
+  --bg-color3: #111;
+  --bg-color4: #111;
+  --bg-color5: #ccc;
+
+  --ft-color1: #333;
+  --ft-color2: #999;
+  --ft-color3: #fff;
+  --ft-color4: #fff;
+  --ft-color5: #666;
+
+  --fz-36: 36px;
+  --fz-24: 24px;
+  --fz-21: 21px;
+  --fz-20: 20px;
+  --fz-18: 18px;
+  --fz-16: 16px;
+  --fz-15: 15px;
+  --fz-14: 14px;
+  --fz-13: 13px;
+  --fz-12: 12px;
 }
+
+@include desktop() {
+  :root {
+    --container-width: 900px;
+    --container-gap: 90px 0;
+    --fz-36: 32px; 
+    --fz-24: 22px;
+    --fz-21: 19px;
+  }
+}
+@include tablet() {
+  :root {
+    --container-width: 600px;
+
+    --fz-20: 18px;
+    --fz-18: 17px;
+    --fz-16: 15px;
+    --fz-15: 14px;
+    --fz-14: 14px;
+  }
+}
+@include mobile() {
+  :root {
+    --container-width: 380px;
+    --container-gap: 70px 0;
+
+    --fz-36: 26px;
+    --fz-24: 22px;
+  }
+}
+
+#container {
+  margin-top: 70px;
+  padding: var(--container-gap);
+  min-height: calc(100vh - 70px - 50px);
+  box-sizing: border-box;
+}
+
+.wrap {
+  @include wrap;
+}
+
