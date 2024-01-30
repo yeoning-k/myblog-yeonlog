@@ -8,7 +8,7 @@ export const NAVIGATION = [
     link: '/work/list'
   },
   {
-    name: 'About Me',
+    name: 'About me',
     link: '/about'
   }
 ];

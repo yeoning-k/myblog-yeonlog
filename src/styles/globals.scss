@@ -76,3 +76,34 @@
   @include wrap;
 }
 
+.contents {
+  margin: var(--container-gap);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .contents__title {
+    position: relative;
+    font-size: var(--fz-24);
+    font-weight: bold;
+    color: var(--base-font-color);
+
+    .more__btn {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      font-size: var(--fz-14);
+      font-weight: 300;
+      color: var(--ft-color2);
+
+      &:hover {
+        font-weight: 400;
+        color: var(--ft-color1)
+      }
+    }
+  }
+}
