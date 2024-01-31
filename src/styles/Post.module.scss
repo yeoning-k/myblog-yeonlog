@@ -1,0 +1,226 @@
+/*== post list ==*/
+.posts {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  .posts__tab {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 100px;
+    height: 0;
+    z-index: 7000;
+    transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+
+    ul {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+      background: var(--base-background);
+
+      li {
+        cursor: pointer;
+
+        span {
+          padding: 0 20px;
+          display: inline-block;
+          height: 35px;
+          border: 1px solid var(--border-color);
+          border-radius: 35px;
+          font-size: var(--fz-15);
+          line-height: 35px;
+          color: var(--base-font-color);
+        }
+
+        &.posts__tab--active span {
+          background: var(--bg-color3);
+          border: 1px solid var(--border-color);
+          color: var(--ft-color3);
+        }
+      }
+    }
+  }
+
+  .posts__contents { 
+    width: calc(100% - 310px);
+  }
+
+  .posts__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .posts__search {
+    position: relative;
+    width: 277px;
+    border-bottom: 1px solid var(--border-color);
+
+    input {
+      padding: 0 15px;
+      width: 100%;
+      height: 40px;
+      border: none;
+      background: none;
+      font-size: var(--fz-14);
+      color: var(--ft-color1);
+      box-sizing: border-box;
+      outline: none;
+
+      &::placeholder {
+        color: var(--ft-color2);
+      }
+    }
+
+    svg {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: var(--fz-20);
+      color: var(--ft-color2);
+    }
+  }
+}
+
+
+/*== post detail ==*/
+.post {
+  .post__title {
+    font-size: var(--fz-36);
+    font-weight: bold;
+    color: var(--base-font-color);
+  }
+  .post__date {
+    margin-top: 20px;
+    @include date-icon(var(--fz-14), 14px);
+  }
+
+  .post__body {
+    display: flex;
+    margin: 30px 0;
+    padding: 50px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    gap: 80px;
+  }
+
+  .post__button {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+
+    .post__tags {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+
+      span {
+        padding: 0 20px;
+        background: var(--bg-color2);
+        height: 35px;
+        line-height: 35px;
+        border-radius: 35px;
+        font-size: var(--fz-14);
+        color: var(--ft-color1);
+      }
+    }
+
+    a {
+      display: inline-block;
+      padding: 0 20px;
+      height: 35px;
+      line-height: 35px;
+      border-radius: 35px;
+      background: var(--bg-color3);
+      font-size: var(--fz-14);
+      font-weight: bold;
+      color: var(--ft-color3);
+    }
+  }
+
+  .post__navigator {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: var(--fz-14);
+    color: var(--ft-color1);
+    li {
+      display: flex;
+      padding: 0 30px;
+      height: 55px;
+      line-height: 55px;
+      border-top: 1px solid var(--border-color);
+      align-items: center;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      .navigator__title {
+        width: 80px;
+        font-weight: bold;
+      }
+
+      .navigator__link {
+        display: block;
+        width: calc(100% - 80px);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: var(--ft-color1);
+        overflow: hidden;
+      }
+
+      .navigator__link:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.toc {
+  position: relative;
+  height: auto;
+  width: 200px;
+  min-width: 180px;
+
+  ul {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc__list {
+    margin: 10px 0;
+    font-size: var(--fz-14);
+    color: var(--base-font-color);
+    cursor: pointer;
+
+    &.toc__H1 {
+      font-weight: bold;
+    }
+    &.toc__H2 {
+      margin-left: 15px;
+    }
+    &.toc__H3 {
+      margin-left: 30px;
+    }
+
+    &.toc__list--active {
+      position: relative;
+      font-weight: bold;
+
+      &::before {
+        position: absolute;
+        left: -25px;
+        content: '👉🏻';
+      }
+    }
+  }
+}
+
+
+
+/*== markdown ==*/
+.markdown {
+
+}

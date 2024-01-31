@@ -71,44 +71,19 @@
 
 .utils {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   align-items: center;
 
   div {
-    @include header-icon;
-    width: 35px;
-    height: 35px;
-
-    &:hover {
-      background: var(--bg-color2);
-    }
-
-    svg {
-      font-size: var(--fz-24);
-      color: var(--base-font-color);
-    }
-
-    &.utils__git a {
-      display: flex;
-
-      svg {
-        font-size: var(--fz-21);
-      }
-    }
+    @include header-icon(35px, var(--fz-24));
   }
 }
 
 .hamburger {
   .hamburger__btn {
-    @include header-icon;
+    @include header-icon(40px, 26px);
     position: relative;
     z-index: 9999;
-    width: 40px;
-    height: 40px;
-
-    svg {
-      font-size: 26px;
-    }
   }
 
   .hamburger__menu {
@@ -145,22 +120,8 @@
     }
 
     .utils {
-      gap: 20px;
-
       div {
-        @include header-icon;
-        width: 40px;
-        height: 40px;
-
-        svg {
-          font-size: 26px;
-        }
-
-        &.utils__git a {
-          svg {
-            font-size: 24px;
-          }
-        }
+        @include header-icon(40px, 26px);
       }
     }
   }
