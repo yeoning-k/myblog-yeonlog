@@ -5,7 +5,7 @@ export const NAVIGATION = [
   },
   {
     name: 'Project',
-    link: '/work/list'
+    link: '/project/list'
   },
   {
     name: 'About me',
