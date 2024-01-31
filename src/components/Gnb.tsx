@@ -4,9 +4,10 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiSun, FiMoon, FiGithub } from 'react-icons/fi';
 
+import ThemeContext from '@/context/ThemeContext';
 import { NAVIGATION, GITHUB_LINK } from '@/lib/constants';
 import { hamburger } from '@/lib/animation';
-import ThemeContext from '@/context/ThemeContext';
+
 import styles from '@/styles/Layout.module.scss';
 
 const Gnb = ({ animate = false }) => {
