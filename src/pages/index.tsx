@@ -3,8 +3,12 @@ import { FiArrowRight } from 'react-icons/fi';
 
 import { GnbNameType } from '@/interfaces';
 import { NAVIGATION } from '@/lib/constants';
+import { useGetData } from '@/lib/hooks';
 import Layout from '@/components/Layout';
 import PageTitle from '@/components/PageTitle';
+import PostList from '@/components/posts/PostList';
+
+import styles from '@/styles/Component.module.scss';
 
 const ContentsTitle = ({ title }: { title: GnbNameType }) => {
   const goToLink = NAVIGATION.find(menu => menu.name === title);
@@ -22,6 +26,9 @@ const ContentsTitle = ({ title }: { title: GnbNameType }) => {
 };
 
 export default function Home() {
+  const { posts: project } = useGetData('project');
+  const { posts: blog } = useGetData('blog');
+
   return (
     <Layout>
       <div className="wrap">
@@ -30,11 +37,13 @@ export default function Home() {
           description="Front-end developer"
           image="/images/custom_emoji_me.png"
         />
-        <div className="contents">
+        <div className={`${styles.main} contents`}>
           <ContentsTitle title="Project" />
+          <PostList posts={project.slice(0, 4)} type="box" />
         </div>
         <div className="contents">
           <ContentsTitle title="Blog" />
+          <PostList posts={blog.slice(0, 3)} type="list" />
         </div>
       </div>
     </Layout>
