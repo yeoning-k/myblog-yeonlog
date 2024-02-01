@@ -11,7 +11,6 @@ import styles from '@/styles/Post.module.scss';
 
 const PostDetail = ({ post }: { post: Post }) => {
   const { title, date, tags, category, body, slug } = post;
-  console.log('body', body);
 
   return (
     <div className="wrap">
