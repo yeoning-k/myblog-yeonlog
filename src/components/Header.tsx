@@ -5,6 +5,7 @@ import HeaderScrollContext from '@/context/HeaderScrollContext';
 import Logo from './Logo';
 import Gnb from './Gnb';
 import Hamburger from './Hamburger';
+
 import styles from '@/styles/Layout.module.scss';
 
 const Header = () => {
@@ -13,12 +14,13 @@ const Header = () => {
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 1024);
+    document.body.style.overflow = 'unset';
   }, []);
 
   useLayoutEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
-      if (!isMobile) document.body.style.overflow = 'unset';
+      document.body.style.overflow = 'unset';
     };
 
     window.addEventListener('resize', handleResize);

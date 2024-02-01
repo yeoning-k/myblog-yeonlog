@@ -71,44 +71,19 @@
 
 .utils {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   align-items: center;
 
   div {
-    @include header-icon;
-    width: 35px;
-    height: 35px;
-
-    &:hover {
-      background: var(--bg-color2);
-    }
-
-    svg {
-      font-size: var(--fz-24);
-      color: var(--base-font-color);
-    }
-
-    &.utils__git a {
-      display: flex;
-
-      svg {
-        font-size: var(--fz-21);
-      }
-    }
+    @include header-icon(35px, var(--fz-24));
   }
 }
 
 .hamburger {
   .hamburger__btn {
-    @include header-icon;
+    @include header-icon(40px, 26px);
     position: relative;
     z-index: 9999;
-    width: 40px;
-    height: 40px;
-
-    svg {
-      font-size: 26px;
-    }
   }
 
   .hamburger__menu {
@@ -145,22 +120,8 @@
     }
 
     .utils {
-      gap: 20px;
-
       div {
-        @include header-icon;
-        width: 40px;
-        height: 40px;
-
-        svg {
-          font-size: 26px;
-        }
-
-        &.utils__git a {
-          svg {
-            font-size: 24px;
-          }
-        }
+        @include header-icon(40px, 26px);
       }
     }
   }
@@ -173,5 +134,50 @@
     width: 100%;
     background: #eee;
     z-index: 9980;
+  }
+}
+
+.notFound {
+  margin-top: 80px;
+  text-align: center;
+
+  .notFound__image {
+    margin-bottom: 50px;
+    img {
+      width: 321px;
+      height: auto;
+    }
+  }
+  .notFound__title {
+    margin-bottom: 15px;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--base-font-color);
+  }
+  .notFound__text {
+    font-size: var(--fz-15);
+    font-weight: 300;
+    line-height: 24px;
+    color: var(--ft-color1);
+  }
+  .notFound__btn {
+    margin-top: 50px;
+    display: inline-block;
+    width: 180px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50px;
+    background: var(--bg-color4);
+    font-weight: 500;
+    color: var(--ft-color4);
+  }
+}
+
+.footer {
+  .footer__copyright {
+    padding: 20px 0;
+    font-size: var(--fz-12);
+    text-align: center;
+    color: var(--ft-color2);
   }
 }

@@ -21,13 +21,58 @@
   width: var(--container-width);
 }
 
-@mixin header-icon {
+@mixin ellipsis($lines: 1) {
+  @if ($lines==1) {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@mixin header-icon($size, $svg-size) {
   display: flex;
   border-radius: 50px;
   justify-content: center;
   align-items: center;
+  width: $size;
+  height: $size;
 
   &:hover {
     background: var(--bg-color2);
+  }
+
+  svg {
+    font-size: $svg-size;
+    color: var(--base-font-color);
+  }
+
+  &.utils__git a {
+    display: flex;
+
+    svg {
+      font-size: calc(#{$svg-size} - 3px);
+      color: var(--base-font-color);
+    }
+  }
+}
+
+@mixin date-icon($fz, $img-size) {
+  display:flex;
+  font-size: $fz;
+  color: var(--ft-color2);
+
+  &::before {
+    content: '';
+    margin-right: calc($fz - 5px);
+    width: $img-size;
+    height: $img-size;
+    background: url('/images/icon_calendar.png') no-repeat center/cover;
   }
 }

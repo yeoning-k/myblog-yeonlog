@@ -6,6 +6,7 @@
   --container-width: 1200px;
   --container-gap: 100px 0;
   --border-radius: 8px;
+  --list-gap: 30px;
 
   --base-background: #fff;
   --base-font-color: #111;
@@ -39,30 +40,77 @@
   :root {
     --container-width: 900px;
     --container-gap: 90px 0;
-    --fz-36: 32px; 
-    --fz-24: 22px;
-    --fz-21: 19px;
-  }
-}
-@include tablet() {
-  :root {
-    --container-width: 600px;
+    --list-gap: 20px;
 
-    --fz-20: 18px;
     --fz-18: 17px;
     --fz-16: 15px;
     --fz-15: 14px;
     --fz-14: 14px;
   }
 }
+@include tablet() {
+  :root {
+    --container-width: 600px;
+    --container-gap: 80px 0;
+
+    --fz-36: 32px; 
+    --fz-24: 22px;
+    --fz-21: 19px;
+  }
+}
 @include mobile() {
   :root {
     --container-width: 380px;
-    --container-gap: 70px 0;
+    --container-gap: 65px 0;
 
     --fz-36: 26px;
-    --fz-24: 22px;
+    --fz-24: 21px;
+    --fz-21: 19px;
+
+    --fz-18: 16px;
+    --fz-14: 13px;
   }
+}
+
+[data-theme='light'] {
+  --base-background: #fff;
+  --base-font-color: #111;
+  --border-color: #eee;
+
+  --bg-color1: #fff;
+  --bg-color2: #eee;
+  --bg-color3: #111;
+  --bg-color4: #111;
+  --bg-color5: #ccc;
+
+  --ft-color1: #333;
+  --ft-color2: #999;
+  --ft-color3: #fff;
+  --ft-color4: #fff;
+  --ft-color5: #666;
+}
+
+[data-theme='dark'] {
+  --base-background: #111;
+  --base-font-color: #fff;
+  --border-color: #333;
+
+  --bg-color1: #333;
+  --bg-color2: #555;
+  --bg-color3: #fff;
+  --bg-color4: #333;
+  --bg-color5: #666;
+
+  --ft-color1: #eee;
+  --ft-color2: #999;
+  --ft-color3: #111;
+  --ft-color4: #fff;
+  --ft-color5: #666;
+}
+
+body {
+  background: var(--base-background);
+  transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
 }
 
 #container {
@@ -76,3 +124,38 @@
   @include wrap;
 }
 
+.contents {
+  margin: var(--container-gap);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .contents__title {
+    position: relative;
+    font-size: var(--fz-24);
+    font-weight: bold;
+    color: var(--base-font-color);
+
+    .more__btn {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      font-size: var(--fz-14);
+      font-weight: 300;
+      color: var(--ft-color2);
+
+      &:hover {
+        font-weight: 400;
+        color: var(--ft-color1)
+      }
+    }
+  }
+}
+
+.utterances {
+  max-width: 100% !important;
+}
