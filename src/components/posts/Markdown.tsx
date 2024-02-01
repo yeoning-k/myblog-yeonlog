@@ -10,7 +10,7 @@ import { dracula, prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import ThemeContext from '@/context/ThemeContext';
 import styles from '@/styles/Markdonw.module.scss';
 
-const Markdown = ({ contents }: { contents: string }) => {
+const Markdown = ({ contents }: { contents: string | undefined }) => {
   const context = useContext(ThemeContext);
 
   return (

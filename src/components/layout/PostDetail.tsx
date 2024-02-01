@@ -1,15 +1,16 @@
 
 import Link from 'next/link';
-import { type Post } from 'contentlayer/generated';
 
+import { PostDetailProps, PostType } from '@/interfaces';
 import Toc from '../posts/Toc';
 import Markdown from '../posts/Markdown';
 import PostNavigator from '../posts/PostNavigator';
 import UtterancesComments from '../posts/UtterancesComments';
 
 import styles from '@/styles/Post.module.scss';
-const PostDetail = ({ post }: { post: Post }) => {
-  const { title, date, tags, category, body, slug } = post;
+const PostDetail = ({ data }: { data: PostDetailProps }) => {
+  const { post } = data;
+  const { title, date, tags, category, content, id } = post;
 
   return (
     <div className="wrap">
@@ -19,8 +20,8 @@ const PostDetail = ({ post }: { post: Post }) => {
           <div className={styles.post__date}>{date}</div>
         </div>
         <div className={styles.post__body}>
-          <Markdown contents={body.raw} />
-          <Toc slug={slug} />
+          <Markdown contents={content} />
+          <Toc slug={id} />
         </div>
         <div className={styles.post__footer}>
           <div className={styles.post__button}>
@@ -31,7 +32,7 @@ const PostDetail = ({ post }: { post: Post }) => {
             </div>
             <Link href={`/${category}/list`}>목록보기</Link>
           </div>
-          <PostNavigator category={category} slug={slug} />
+          <PostNavigator data={data} />
         </div>
       </div>
       <div className="contents">

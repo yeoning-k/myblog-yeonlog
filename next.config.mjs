@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url';
 
 const require = createRequire(import.meta.url);
 const path = require('path');
-const { withContentlayer } = require('next-contentlayer');
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
@@ -17,4 +16,4 @@ const nextConfig = {
   }
 };
 
-export default withContentlayer(nextConfig);
+export default nextConfig;

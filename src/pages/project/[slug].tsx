@@ -1,12 +1,12 @@
 import Layout from '@/components/Layout';
 import PostDetail from '@/components/layout/PostDetail';
+import { PostDetailProps } from '@/interfaces';
+import { getAllPosts, getPostDetail } from '@/lib/api';
 
-import { allPosts, type Post } from 'contentlayer/generated';
-
-const ProjectDetailPage = ({ data }: { data: Post }) => {
+const ProjectDetailPage = ({ data }: { data: PostDetailProps }) => {
   return (
     <Layout>
-      <PostDetail post={data} />
+      <PostDetail data={data} />
     </Layout>
   );
 };
@@ -14,9 +14,10 @@ const ProjectDetailPage = ({ data }: { data: Post }) => {
 export default ProjectDetailPage;
 
 export const getStaticPaths = () => {
-  const paths = allPosts.map(post => ({
+  const { posts } = getAllPosts('project');
+  const paths = posts.map(post => ({
     params: {
-      slug: post.slug
+      slug: post.id
     }
   }));
 
@@ -27,11 +28,21 @@ export const getStaticPaths = () => {
 };
 
 export const getStaticProps = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find(post => post.slug === params.slug);
+  const { posts } = getAllPosts('project');
+  const postIdx = posts.findIndex(post => post.id === params.slug);
+
+  const prevPost = (postIdx !== undefined && posts?.[postIdx - 1]) || null;
+  const nextPost = (postIdx !== undefined && posts?.[postIdx + 1]) || null;
+
+  const detail = getPostDetail('project', params.slug);
 
   return {
     props: {
-      data: post
+      data: {
+        post: detail,
+        next: nextPost,
+        prev: prevPost
+      }
     }
   };
 };

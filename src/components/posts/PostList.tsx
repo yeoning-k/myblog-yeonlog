@@ -1,11 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import classNames from 'classnames';
-import { type Post } from 'contentlayer/generated';
+import { PostType } from '@/interfaces';
 
 import styles from '@/styles/Component.module.scss';
 
-const PostList = ({ posts, type }: { posts: Post[]; type: 'box' | 'list' }) => {
+const PostList = ({
+  posts,
+  type
+}: {
+  posts: PostType[];
+  type: 'box' | 'list';
+}) => {
   if (posts.length <= 0) {
     return <div className={styles.empty}>게시글이 없습니다 🥲</div>;
   }
@@ -14,18 +20,12 @@ const PostList = ({ posts, type }: { posts: Post[]; type: 'box' | 'list' }) => {
     <div className={classNames(styles.card, styles[`card-${type}`])}>
       <ul>
         {posts.map((item, idx) => {
-          const {
-            title,
-            description,
-            coverImage,
-            tags,
-            date,
-            _raw: { flattenedPath }
-          } = item;
+          const { id, category, title, description, coverImage, tags, date } =
+            item;
 
           return (
             <li className={styles.card__item} key={idx}>
-              <Link href={`/${flattenedPath}`}>
+              <Link href={`/${category}/${id}`}>
                 {coverImage && (
                   <div className={styles.card__thumbnail}>
                     <Image
@@ -38,7 +38,7 @@ const PostList = ({ posts, type }: { posts: Post[]; type: 'box' | 'list' }) => {
                 )}
                 <div className={styles.card__wrap}>
                   <div className={styles.card__tags}>
-                    {tags?.map((tag, i) => (
+                    {tags?.map((tag: string, i: number) => (
                       <span key={`${tag}_${i}`}>#{tag}</span>
                     ))}
                   </div>

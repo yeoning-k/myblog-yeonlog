@@ -1,20 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { type Post } from 'contentlayer/generated';
 import { FiSearch } from 'react-icons/fi';
 
-import { PostDirType } from '@/interfaces';
-import { useGetData } from '@/lib/hooks';
+import { PostDirType, PostsProps, PostType } from '@/interfaces';
 import PostTab from '@/components/posts/PostTab';
 import PostList from '@/components/posts/PostList';
 
 import styles from '@/styles/Post.module.scss';
 
-const Posts = ({ dir }: { dir: PostDirType }) => {
-  const { posts, allTag } = useGetData(dir);
-
+const Posts = ({ datas, dir }: { datas: PostsProps; dir: PostDirType }) => {
+  const { posts, allTags } = datas;
   const [activeTab, setActiveTab] = useState('');
-  const [data, setData] = useState<Post[]>([]);
+  const [data, setData] = useState<PostType[]>([]);
   const [searchText, setSearchText] = useState('');
 
   const searchParams = useSearchParams();
@@ -38,7 +35,7 @@ const Posts = ({ dir }: { dir: PostDirType }) => {
   return (
     <div className={`${styles.posts} contents`}>
       <PostTab
-        tabs={allTag}
+        tabs={allTags}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       />
