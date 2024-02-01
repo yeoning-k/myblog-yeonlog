@@ -6,6 +6,7 @@
   --container-width: 1200px;
   --container-gap: 100px 0;
   --border-radius: 8px;
+  --list-gap: 30px;
 
   --base-background: #fff;
   --base-font-color: #111;
@@ -39,29 +40,35 @@
   :root {
     --container-width: 900px;
     --container-gap: 90px 0;
-    --fz-36: 32px; 
-    --fz-24: 22px;
-    --fz-21: 19px;
-  }
-}
-@include tablet() {
-  :root {
-    --container-width: 600px;
+    --list-gap: 20px;
 
-    --fz-20: 18px;
     --fz-18: 17px;
     --fz-16: 15px;
     --fz-15: 14px;
     --fz-14: 14px;
   }
 }
+@include tablet() {
+  :root {
+    --container-width: 600px;
+    --container-gap: 80px 0;
+
+    --fz-36: 32px; 
+    --fz-24: 22px;
+    --fz-21: 19px;
+  }
+}
 @include mobile() {
   :root {
     --container-width: 380px;
-    --container-gap: 70px 0;
+    --container-gap: 65px 0;
 
     --fz-36: 26px;
-    --fz-24: 22px;
+    --fz-24: 21px;
+    --fz-21: 19px;
+
+    --fz-18: 16px;
+    --fz-14: 13px;
   }
 }
 

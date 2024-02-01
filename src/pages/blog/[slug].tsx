@@ -1,6 +1,5 @@
 import Layout from '@/components/Layout';
 import PostDetail from '@/components/layout/PostDetail';
-import { useGetData } from '@/lib/hooks';
 
 import { allPosts, type Post } from '@contentlayer';
 

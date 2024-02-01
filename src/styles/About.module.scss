@@ -1,0 +1,204 @@
+.about {
+  margin: var(--container-gap);
+  margin-bottom: 0;
+  padding: 80px 0;
+  background: var(--border-color);
+
+  .message {
+    display: flex;
+    justify-content: space-between;
+  
+    .message__image {
+      display: flex;
+      width: 107px;
+      height: 107px;
+      background: var(--bg-color5);
+      border-radius: 107px;
+      overflow: hidden;
+      align-items: flex-end;
+      justify-content: center;
+      
+      img {
+        width: 115px;
+        height: 115px;
+      }
+    }
+
+    .message__commnet {
+      width: calc(100% - 107px - 45px);
+
+      .message__name {
+        margin-bottom: 15px;
+        font-size: var(--fz-15);
+        font-weight: bold;
+        color: var(--base-font-color);
+      }
+
+      .message__box {
+        width: 100%;
+
+        .message__text {
+          display: inline-block;
+          padding: 15px 30px;
+          margin-bottom: 20px;
+          background: var(--base-background);
+          border-radius: 0 var(--border-radius) var(--border-radius);
+          box-shadow: 0 4px 16px 0 rgba(19, 19, 54, 0.1);
+          white-space: pre-line;
+          font-size: var(--fz-14);
+          color: var(--base-font-color);
+
+          p {
+            line-height: 26px;
+          }
+        }
+
+        .message__btns {
+          margin-top: 20px;
+
+          .message__btn {
+            margin-top: 10px;
+            padding: 8px 0;
+            width: 100%;
+            border-radius: 100px;
+            text-align: center;
+            font-size: var(--fz-12);
+            border:1px solid var(--border-color);
+            cursor: pointer;
+
+            &.message__btn-inactive {
+              opacity: 0.6;
+              cursor: default;
+            }
+
+            &:not(.message__btn-inactive):hover {
+              background: var(--bg-color3);
+              color: var(--ft-color3)
+            }
+          }
+        }
+      }
+
+      .message__box_user {
+        margin: 10px 0;
+        text-align: right;
+
+        .message__text {
+          background: var(--bg-color3);
+          border-radius:  var(--border-radius) 0 var(--border-radius) var(--border-radius);
+          color: var(--ft-color3)
+        }
+      }
+    }
+
+    .message__file {
+      position: relative;
+      padding: 10px 0;
+      padding-left: 55px;
+
+      &::before {
+        position: absolute;
+        top:10px;
+        left:0;
+        content: '📂';
+        font-size: var(--fz-36);
+      }
+      
+      p {
+        font-size: var(--fz-14);
+        color: var(--ft-color1)
+      }
+      span {
+        display: block;
+        font-size: var(--fz-12);
+        color: var(--ft-color2);
+      }
+      .message__file_btn {
+        margin-top: 13px;
+        a {
+          font-size: var(--fz-12);
+          color: #6598D5;
+
+          &:last-child::before {
+            padding:0 5px;
+            content: '·'
+          }
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .message__email {
+      color: #6598D5;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @include desktop() {
+    .message {
+      .message__image {
+        display: flex;
+        width: 98px;
+        height: 98px;
+        
+        img {
+          width: 105px;
+          height: 105px;
+        }
+      }
+
+      .message__commnet {
+        width: calc(100% - 98px - 30px);
+
+        .message__box {
+          .message__text {
+            padding: 15px 20px;
+          }
+        }
+      }
+    }
+  }
+
+  @include tablet() {
+    .message {
+      .message__image {
+        display: flex;
+        width: 80px;
+        height: 80px;
+        
+        img {
+          width: 90px;
+          height: 90px;
+        }
+      }
+
+      .message__commnet {
+        width: calc(100% - 80px - 30px);
+
+        .message__box {
+          .message__text {
+            padding: 15px 20px;
+          }
+        }
+      }
+    }
+  }
+
+  @include mobile() {
+    .message {
+      .message__image {
+        display: none;
+      }
+
+      .message__commnet {
+        width: 100%;
+      }
+    }
+  }
+}

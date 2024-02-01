@@ -1,5 +1,8 @@
+import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
+
+import HeaderScrollContext from '@/context/HeaderScrollContext';
 
 import styles from '@/styles/Post.module.scss';
 
@@ -14,9 +17,14 @@ const PostTab = ({
 }) => {
   const router = useRouter();
   const { pathname } = router;
+  const { isVisivle } = useContext(HeaderScrollContext);
 
   return (
-    <div className={styles.posts__tab}>
+    <div
+      className={classNames(styles.posts__tab, {
+        [styles['posts__tab--top']]: !isVisivle
+      })}
+    >
       <ul>
         <li
           onClick={() => {
