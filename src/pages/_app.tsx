@@ -11,7 +11,10 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>YEON LOG</title>
-        <meta name="description" content="쪼랭이 개발자의 개발일기" />
+        <meta
+          name="description"
+          content="프론트엔드 개발자 yeoning의 개발 일기"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
