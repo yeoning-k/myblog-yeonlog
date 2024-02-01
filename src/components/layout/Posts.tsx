@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { type Post } from '@contentlayer';
+import { type Post } from 'contentlayer/generated';
 import { FiSearch } from 'react-icons/fi';
 
 import { PostDirType } from '@/interfaces';

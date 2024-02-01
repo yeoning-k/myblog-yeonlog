@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { type Post } from '@contentlayer';
+import { type Post } from 'contentlayer/generated';
 import { useGetData } from '@/lib/hooks';
 import { PostDirType } from '@/interfaces';
 
