@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import classNames from 'classnames';
-import { type Post } from '@contentlayer';
+import { type Post } from 'contentlayer/generated';
 
 import styles from '@/styles/Component.module.scss';
 

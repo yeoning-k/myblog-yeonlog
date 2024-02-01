@@ -1,5 +1,5 @@
 import { useMemo, useEffect } from 'react';
-import { allPosts, type Post } from '@contentlayer';
+import { allPosts, type Post } from 'contentlayer/generated';
 
 const getAllTags = (data: Post[]) => {
   const tags = data.map(post => post.tags).flat();

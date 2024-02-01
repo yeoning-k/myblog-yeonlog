@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout';
 import PostDetail from '@/components/layout/PostDetail';
 
-import { allPosts, type Post } from '@contentlayer';
+import { allPosts, type Post } from 'contentlayer/generated';
 
 const ProjectDetailPage = ({ data }: { data: Post }) => {
   return (
