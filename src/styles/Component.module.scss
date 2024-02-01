@@ -169,6 +169,10 @@
     line-height: 1.7;
     color: var(--ft-color1);
     @include ellipsis(2);
+
+    @include mobile {
+      @include ellipsis(3);
+    }
   }
 
   &-box {
