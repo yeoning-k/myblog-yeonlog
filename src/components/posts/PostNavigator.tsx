@@ -33,7 +33,6 @@ const PostNavigator = ({
   category: string;
   slug: string;
 }) => {
-  console.log(typeof category);
   const { posts } = useGetData(category);
   const postIdx = posts.findIndex(post => post.slug === slug);
 

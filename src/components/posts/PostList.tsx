@@ -5,15 +5,7 @@ import { type Post } from '@contentlayer';
 
 import styles from '@/styles/Component.module.scss';
 
-const PostList = ({
-  posts,
-  type,
-  view
-}: {
-  posts: Post[];
-  type: 'box' | 'list';
-  view?: string;
-}) => {
+const PostList = ({ posts, type }: { posts: Post[]; type: 'box' | 'list' }) => {
   if (posts.length <= 0) {
     return <div className={styles.empty}>게시글이 없습니다 🥲</div>;
   }
