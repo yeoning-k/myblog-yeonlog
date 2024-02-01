@@ -1,12 +1,13 @@
 import { ReactNode } from 'react';
-import { Noto_Sans_KR } from 'next/font/google';
 import Header from './Header';
+import Footer from './Footer';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div>
       <Header />
       <div id="container">{children}</div>
+      <Footer />
     </div>
   );
 };
