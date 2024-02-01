@@ -30,7 +30,9 @@ const PostDetail = ({ data }: { data: PostDetailProps }) => {
                 <span key={`${tag}_${i}`}>#{tag}</span>
               ))}
             </div>
-            <Link href={`/${category}/list`}>목록보기</Link>
+            <div className={styles.post__btn}>
+              <Link href={`/${category}/list`}>목록보기</Link>
+            </div>
           </div>
           <PostNavigator data={data} />
         </div>

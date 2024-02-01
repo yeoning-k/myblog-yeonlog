@@ -17,8 +17,11 @@
     transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
 
     @include tablet {
+      position: sticky;
+      width: 100%;
+      height: 55px;
       top: 70px;
-      margin-bottom: 80px;
+      margin-bottom: 30px;
 
       &::before {
         position: absolute;
@@ -46,17 +49,23 @@
       background: var(--base-background);
 
       @include tablet {
+        height: 55px;
         flex-direction: row;
-        padding: 10px 0;
         gap: 10px;
         flex-wrap: nowrap;
+        align-items: center;
         overflow: scroll;
         -ms-overflow-style: none;
         scrollbar-width: none; 
-        
+
         &::-webkit-scrollbar {
           display: none;
         }
+      }
+
+      @include mobile {
+        margin: 0 -6%;
+        padding: 0 6%;
       }
 
       li {
@@ -162,10 +171,20 @@
     display: flex;
     justify-content: space-between;
 
+    @include mobile {
+      gap: 10px;
+      flex-direction: column;
+    }
+
     .post__tags {
       display: flex;
       gap: 15px;
       justify-content: center;
+
+      @include mobile {
+        gap: 8px;
+        justify-content: flex-start;
+      }
 
       span {
         padding: 0 20px;
@@ -175,19 +194,39 @@
         border-radius: 35px;
         font-size: var(--fz-14);
         color: var(--ft-color1);
+
+        @include mobile {
+          display: flex;
+          justify-content: flex-end;
+          max-width: 55px;
+          height: 30px;
+          line-height: 30px;
+        }
       }
     }
 
-    a {
-      display: inline-block;
-      padding: 0 20px;
-      height: 35px;
-      line-height: 35px;
-      border-radius: 35px;
-      background: var(--bg-color3);
-      font-size: var(--fz-14);
-      font-weight: bold;
-      color: var(--ft-color3);
+    .post__btn {
+      @include mobile {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      a {
+        display: inline-block;
+        padding: 0 20px;
+        height: 35px;
+        line-height: 35px;
+        border-radius: 35px;
+        background: var(--bg-color3);
+        font-size: var(--fz-14);
+        font-weight: bold;
+        color: var(--ft-color3);
+
+        @include mobile {
+          height: 30px;
+          line-height: 30px;
+        }
+      }
     }
   }
 
@@ -196,6 +235,7 @@
     border-radius: var(--border-radius);
     font-size: var(--fz-14);
     color: var(--ft-color1);
+
     li {
       display: flex;
       padding: 0 30px;
@@ -235,6 +275,16 @@
   width: 200px;
   min-width: 180px;
 
+  @include desktop {
+    width: 180px;
+    min-width: 160px;
+  }
+
+  @include tablet {
+    display: none;
+  }
+
+
   ul {
     position: sticky;
     top: 100px;
@@ -269,9 +319,3 @@
   }
 }
 
-
-
-/*== markdown ==*/
-.markdown {
-
-}
