@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { type Post } from '@contentlayer';
+import { type DocumentTypes } from '@contentlayer';
 
 import Toc from '../posts/Toc';
 import Markdown from '../posts/Markdown';
@@ -9,7 +9,7 @@ import UtterancesComments from '../posts/UtterancesComments';
 
 import styles from '@/styles/Post.module.scss';
 
-const PostDetail = ({ post }: { post: Post }) => {
+const PostDetail = ({ post }: { post: DocumentTypes }) => {
   const { title, date, tags, category, body, slug } = post;
 
   return (
