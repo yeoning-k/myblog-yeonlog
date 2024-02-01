@@ -8,7 +8,7 @@ import UtterancesComments from '../posts/UtterancesComments';
 
 import styles from '@/styles/Post.module.scss';
 
-const PostDetail = ({ post }) => {
+const PostDetail = () => {
   // console.log(post);
   // const { title, date, tags, category, body, slug } = post;
   // return (
