@@ -20,12 +20,23 @@ const PostList = ({
     <div className={classNames(styles.card, styles[`card-${type}`])}>
       <ul>
         {posts.map((item, idx) => {
-          const { id, category, title, description, coverImage, tags, date } =
-            item;
+          const {
+            id,
+            category,
+            title,
+            description,
+            coverImage,
+            tags,
+            date,
+            link
+          } = item;
 
           return (
             <li className={styles.card__item} key={idx}>
-              <Link href={`/${category}/${id}`}>
+              <Link
+                href={link ?? `/${category}/${id}`}
+                target={link ? '_blank' : '_self'}
+              >
                 {coverImage && (
                   <div className={styles.card__thumbnail}>
                     <Image
