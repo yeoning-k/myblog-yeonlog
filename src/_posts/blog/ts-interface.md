@@ -1,5 +1,5 @@
 ---
-title: 인터페이스를 이용해 타입을 정의해보자!
+title: 인터페이스를 이용해 타입을 정의해보자
 description:
 tags:
   - typescript
