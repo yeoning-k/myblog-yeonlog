@@ -7,6 +7,8 @@ Next.js로 만든 정적 블로그로 vercel로 배포까지 진행하였습니�
 
 [블로그 바로가기](https://yeonlog.vercel.app/)
 
+<br/>
+<br/>
 
 ### 주요 기능
 해당 블로그의 주요 기능은 다음과 같습니다.
@@ -19,7 +21,11 @@ Next.js로 만든 정적 블로그로 vercel로 배포까지 진행하였습니�
     - 게시글 TOC 목차 구현
     - 댓글(utterances)
     - 이전 게시글, 다음 게시글 노출
-    
+
+
+<br/>
+<br/>
+
 ### 기술 스택
 - 환경: nextjs
 - 사용 언어: typescript
@@ -38,6 +44,8 @@ Next.js로 만든 정적 블로그로 vercel로 배포까지 진행하였습니�
     - framer-motion
 
 
+<br/>
+<br/>
 ### 추가 작업 예정
 - SEO 검색 엔진 최적화
 - 게시글 관리자 페이지 작업(CMS)
