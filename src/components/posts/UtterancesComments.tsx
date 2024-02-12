@@ -1,11 +1,16 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ThemeContext from '@/context/ThemeContext';
 
 const UtterancesComments = () => {
   const context = useContext(ThemeContext);
-  return (
+  const [isLoad, setIsLoad] = useState(false);
+
+  useEffect(() => {
+    setIsLoad(true);
+  }, []);
+  return isLoad ? (
     <section
-      ref={(elem) => {
+      ref={elem => {
         if (!elem) {
           return;
         }
@@ -25,6 +30,8 @@ const UtterancesComments = () => {
       }}
       style={{ marginTop: '14px' }}
     />
+  ) : (
+    <></>
   );
 };
 
