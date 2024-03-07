@@ -12,6 +12,27 @@ Next.js로 만든 정적 블로그로 vercel로 배포까지 진행하였습니�
 
 <br/><br/>
 
+
+## 기술 스택
+- 환경: nextjs
+- 사용 언어: typescript
+- 컨텐츠 관리: markdown
+- 스타일링: scss module
+- 코드 관리: git
+- 배포: vercel
+- 사용 라이브러리 및 플러그인: 
+    - react-syntax-highlighter
+    - rehype-raw
+    - rehype-slug
+    - remark-gfm
+    - react-markdown
+    - react-icon
+    - markdown-to-txt
+    - framer-motion
+
+
+<br/><br/>
+
 ## 구현 페이지
 - Home
 - blog
@@ -36,25 +57,6 @@ Next.js로 만든 정적 블로그로 vercel로 배포까지 진행하였습니�
 
 <br/><br/>
 
-## 기술 스택
-- 환경: nextjs
-- 사용 언어: typescript
-- 컨텐츠 관리: markdown
-- 스타일링: scss module
-- 코드 관리: git
-- 배포: vercel
-- 사용 라이브러리 및 플러그인: 
-    - react-syntax-highlighter
-    - rehype-raw
-    - rehype-slug
-    - remark-gfm
-    - react-markdown
-    - react-icon
-    - markdown-to-txt
-    - framer-motion
-
-
-<br/><br/>
 
 ## 추가 작업 예정
 - SEO 검색 엔진 최적화
